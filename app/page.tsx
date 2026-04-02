@@ -1,5 +1,6 @@
 'use client';
 
+import { ShieldCheck, Zap, BarChart3, Languages, Sparkles, UserX } from 'lucide-react';
 import EarlyAccessForm from './components/EarlyAccessForm';
 import { useTranslation } from './i18n/LanguageContext';
 import { Language } from './i18n/translations';
@@ -8,7 +9,7 @@ import { Language } from './i18n/translations';
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5 text-white/50 text-xs tracking-widest2 uppercase">
+    <span className="inline-flex items-center gap-2 border border-white/20 rounded-full px-4 py-1.5 text-white/50 text-sm tracking-widest2 uppercase">
       {children}
     </span>
   );
@@ -16,7 +17,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-muted text-xs tracking-widest2 uppercase font-bold mb-6">
+    <p className="text-muted text-sm tracking-widest2 uppercase font-bold mb-6">
       {children}
     </p>
   );
@@ -47,7 +48,7 @@ function Nav() {
     <header className="absolute top-0 left-0 right-0 z-10 flex items-center justify-between px-6 md:px-12 py-5">
       <a href="/" className="flex items-center gap-2 text-white font-bold tracking-wide">
         <CheckmarkIcon />
-        <span className="text-sm">checked</span>
+        <span className="text-base">checked</span>
       </a>
 
       <div className="flex items-center gap-4">
@@ -55,10 +56,10 @@ function Nav() {
         <div className="flex items-center gap-1">
           {langs.map((l, i) => (
             <span key={l} className="flex items-center gap-1">
-              {i > 0 && <span className="text-white/15 text-xs">·</span>}
+              {i > 0 && <span className="text-white/15 text-sm">·</span>}
               <button
                 onClick={() => setLanguage(l)}
-                className={`text-xs font-bold tracking-widest2 uppercase transition-colors px-1 ${
+                className={`text-sm font-bold tracking-widest2 uppercase transition-colors px-1 ${
                   language === l ? 'text-white' : 'text-white/25 hover:text-white/60'
                 }`}
               >
@@ -72,7 +73,7 @@ function Nav() {
           href="#early-access"
           className="
             border border-white/25 hover:border-green hover:text-green
-            text-white/70 text-xs font-bold tracking-widest2 uppercase
+            text-white/70 text-sm font-bold tracking-widest2 uppercase
             px-5 py-2.5 rounded-lg transition-colors hidden sm:block
           "
         >
@@ -117,11 +118,11 @@ function Hero() {
           checked<span className="text-green">.</span>
         </h1>
 
-        <p className="text-white/75 font-bold text-lg md:text-xl tracking-tight max-w-xl leading-snug">
+        <p className="text-white/75 font-bold text-xl md:text-2xl tracking-tight max-w-xl leading-snug">
           {t.heroTagline}
         </p>
 
-        <p className="text-white/40 text-sm tracking-wide leading-relaxed max-w-md">
+        <p className="text-white/40 text-base tracking-wide leading-relaxed max-w-md">
           {bodyLines.map((line, i) => (
             <span key={i}>
               {line}
@@ -134,7 +135,7 @@ function Hero() {
           href="#early-access"
           className="
             mt-2 bg-green hover:bg-green/90 text-navy
-            font-bold text-xs tracking-widest2 uppercase
+            font-bold text-sm tracking-widest2 uppercase
             px-8 py-4 rounded-xl transition-colors
           "
         >
@@ -150,7 +151,7 @@ function Hero() {
           ].map(({ value, label }) => (
             <div key={label} className="flex flex-col items-center px-8 py-4 gap-1">
               <span className="text-white font-bold text-xl tracking-tight">{value}</span>
-              <span className="text-white/35 text-xs tracking-widest2 uppercase">{label}</span>
+              <span className="text-white/35 text-sm tracking-widest2 uppercase">{label}</span>
             </div>
           ))}
         </div>
@@ -185,12 +186,12 @@ function HowItWorks() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step) => (
             <div key={step.number} className="flex flex-col gap-4">
-              <span className="text-blue font-bold text-xs tracking-widest2 uppercase">
+              <span className="text-blue font-bold text-sm tracking-widest2 uppercase">
                 {step.number}
               </span>
               <div className="w-8 h-px bg-border" />
               <h3 className="text-ink font-bold text-2xl tracking-tight">{step.title}.</h3>
-              <p className="text-muted text-sm leading-relaxed">{step.body}</p>
+              <p className="text-muted text-base leading-relaxed">{step.body}</p>
             </div>
           ))}
         </div>
@@ -205,12 +206,12 @@ function Features() {
   const { t } = useTranslation();
 
   const features = [
-    { icon: '🔒', title: t.feat1Title, body: t.feat1Body },
-    { icon: '⚡', title: t.feat2Title, body: t.feat2Body },
-    { icon: '📊', title: t.feat3Title, body: t.feat3Body },
-    { icon: '🌍', title: t.feat4Title, body: t.feat4Body },
-    { icon: '✅', title: t.feat5Title, body: t.feat5Body },
-    { icon: '🚫', title: t.feat6Title, body: t.feat6Body },
+    { icon: ShieldCheck, title: t.feat1Title, body: t.feat1Body },
+    { icon: Zap,         title: t.feat2Title, body: t.feat2Body },
+    { icon: BarChart3,   title: t.feat3Title, body: t.feat3Body },
+    { icon: Languages,   title: t.feat4Title, body: t.feat4Body },
+    { icon: Sparkles,    title: t.feat5Title, body: t.feat5Body },
+    { icon: UserX,       title: t.feat6Title, body: t.feat6Body },
   ];
 
   return (
@@ -226,9 +227,9 @@ function Features() {
               key={f.title}
               className="bg-navy p-8 flex flex-col gap-3 hover:bg-navy2 transition-colors"
             >
-              <span className="text-2xl" aria-hidden>{f.icon}</span>
-              <h3 className="text-white font-bold text-sm tracking-wide">{f.title}</h3>
-              <p className="text-white/40 text-xs leading-relaxed">{f.body}</p>
+              <f.icon size={24} className="text-green" strokeWidth={1.5} aria-hidden />
+              <h3 className="text-white font-bold text-base tracking-wide">{f.title}</h3>
+              <p className="text-white/40 text-sm leading-relaxed">{f.body}</p>
             </div>
           ))}
         </div>
@@ -260,7 +261,7 @@ function EarlyAccess() {
       <div className="relative z-10 max-w-2xl mx-auto flex flex-col items-center text-center gap-6">
         <div className="flex items-center gap-3">
           <div className="w-8 h-px bg-white/15" />
-          <span className="text-white/30 text-xs tracking-widest2 uppercase font-bold">
+          <span className="text-white/30 text-sm tracking-widest2 uppercase font-bold">
             {t.eaLabel}
           </span>
           <div className="w-8 h-px bg-white/15" />
@@ -272,7 +273,7 @@ function EarlyAccess() {
           <span className="text-green">{t.eaHeadline2}</span>
         </h2>
 
-        <p className="text-white/45 text-sm leading-relaxed max-w-sm">{t.eaBody}</p>
+        <p className="text-white/45 text-base leading-relaxed max-w-sm">{t.eaBody}</p>
 
         <EarlyAccessForm />
       </div>
@@ -293,7 +294,7 @@ function Footer() {
   return (
     <footer className="bg-navy border-t border-white/5 px-6 md:px-12 py-8">
       <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex items-center gap-2 text-white/30 text-xs font-bold tracking-wide">
+        <div className="flex items-center gap-2 text-white/30 text-sm font-bold tracking-wide">
           <CheckmarkIcon />
           <span>checked · {new Date().getFullYear()}</span>
         </div>
@@ -301,10 +302,10 @@ function Footer() {
         <div className="flex items-center gap-3">
           {langs.map(({ code, label }, i) => (
             <span key={code} className="flex items-center gap-3">
-              {i > 0 && <span className="text-white/15 text-xs">·</span>}
+              {i > 0 && <span className="text-white/15 text-sm">·</span>}
               <button
                 onClick={() => setLanguage(code)}
-                className={`text-xs font-bold tracking-widest2 uppercase transition-colors ${
+                className={`text-sm font-bold tracking-widest2 uppercase transition-colors ${
                   language === code ? 'text-white/60' : 'text-white/20 hover:text-white/40'
                 }`}
               >
