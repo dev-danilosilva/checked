@@ -1,4 +1,4 @@
-# checked — Landing Page
+# checked. — Landing Page
 
 Marketing landing page for **checked**, a privacy-first checklist app. Built with Next.js 15, React 19, TypeScript, and Tailwind CSS. Exports as a fully static site.
 
